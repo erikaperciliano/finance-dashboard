@@ -1,6 +1,6 @@
 # Painel de Cotações Financeiras  📊
 
-Esta é uma Aplicação frontend desenvolvida como desafio técnico para visualização de dados financeiros em tempo real, conectada à API HG Brasil Finance. O sistema oferece:
+Esta é uma Aplicação frontend para visualização de dados financeiros em tempo real, conectada à API HG Brasil Finance. O sistema oferece:
 
 - Autenticação segura de usuários
 
