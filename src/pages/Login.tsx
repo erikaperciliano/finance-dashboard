@@ -1,7 +1,11 @@
 import { LogIn, UserPlus } from 'lucide-react';
 import { useState } from 'react';
+import { useAuthStore } from '../store/auth';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
+  const navigate = useNavigate()
+  const { login, register } = useAuthStore();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,6 +14,16 @@ export function Login() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const success = isLogin
+      ? login(email, password)
+      : register(email, password)
+
+      if(success) {
+        navigate('/dashboard')
+      }else {
+        setError(isLogin ? 'Credenciais inválidas' : 'Email já cadastrado');
+      }
   };
 
   return (
