@@ -12,7 +12,7 @@ export interface FinanceData {
     history: {
         timestamp: number;
         price: number;
-    }
+    }[];
 }
 
 export interface AuthSote {

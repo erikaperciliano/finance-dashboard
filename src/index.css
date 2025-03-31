@@ -6,3 +6,16 @@
   --color-primary: #00ff9d;
   --color-primary-dark: #00cc7d;
 }
+
+.chart-container {
+  @apply bg-gray-800 rounded-lg p-4;
+}
+
+.chart-container .recharts-cartesian-grid-horizontal line,
+.chart-container .recharts-cartesian-grid-vertical line {
+  @apply stroke-gray-700;
+}
+
+.chart-container .recharts-text {
+  @apply fill-gray-400;
+}
