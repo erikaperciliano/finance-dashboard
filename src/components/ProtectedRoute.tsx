@@ -8,16 +8,17 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         const checkAuth = () => {
-            if(!isAuthenticated || !checkSession){
+            if(!isAuthenticated || !checkSession()){
                 logout();
                 navigate('/login');
             }
         };
 
         checkAuth();
-        const inteval = setInterval(checkAuth, 100 * 60) // Check every minute
+        const interval = setInterval(checkAuth, 60 * 1000) // 60 segundos
+        // const interval = setInterval(checkAuth, 1000); // descomenta para teste
 
-        return () => clearInterval(inteval);
+        return () => clearInterval(interval);
     }, [isAuthenticated, logout, navigate]);
 
 	return isAuthenticated ? <>{children}</> : null;
