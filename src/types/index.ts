@@ -15,7 +15,7 @@ export interface FinanceData {
     }[];
 }
 
-export interface AuthSote {
+export interface AuthStore {
     user: User | null;
     isAuthenticated: boolean;
     login: (email: string, password: string) => boolean;
