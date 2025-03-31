@@ -6,17 +6,15 @@ import { Dashboard } from './pages/Dashboard';
 export function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }/>
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }/>
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
     </Router>
   );
 }
