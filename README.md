@@ -70,7 +70,20 @@ or
   npm run dev
   
 5 - Acesse a aplicação no seu navegador
-  http://localhost:3000
+
+## Screenshots 📸
+
+<img src="https://github.com/user-attachments/assets/6d43c7bc-9d5b-4686-b2e4-5047072a16a3" alt="Home dark" width="400" height="400">
+<img src="https://github.com/user-attachments/assets/f1aacd33-b17a-4f46-ad5c-3e911183d89c" alt="Home light" width="400" height="400">
+
+<img src="https://github.com/user-attachments/assets/00e56d57-862b-4a66-835a-d716eed54673" alt="register dark" width="400" height="400">
+<img src="https://github.com/user-attachments/assets/bced23ce-cd6a-4b0d-8313-d3b057932571" alt="register light" width="400" height="400">
+
+<img src="https://github.com/user-attachments/assets/e1517a20-3b64-4b12-b703-0d258a53f0d6" alt="dashboard dark" width="400" height="400">
+<img src="https://github.com/user-attachments/assets/97536789-e881-4532-9949-9173187b28cb" alt="dashboard light" width="400" height="400">
+
+
+
 
 ## Link para o Projeto: 
 [Live Demo] (https://franq-finance-dashboard.netlify.app/)
