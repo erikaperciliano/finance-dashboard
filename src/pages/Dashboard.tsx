@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/auth';
 import { useFinanceStore } from '../store/finance';
@@ -12,19 +12,24 @@ export function Dashboard() {
   const { isDark, toggleTheme } = useThemeStore();
   const { data, selectedSymbol, setSelectedSymbol, fetchData } = useFinanceStore();
 
-  useEffect(() => {
+
+  const fetchFinanceData = useCallback(() => {
     fetchData();
-    const interval = setInterval(fetchData, 5000);
-    return () => clearInterval(interval);
   }, [fetchData]);
+
+  useEffect(() => {
+    fetchFinanceData();
+    const interval = setInterval(fetchFinanceData, 5000);
+    
+    return () => clearInterval(interval);
+  }, [fetchFinanceData]);
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
-  const selectedData = data.find(item => item.symbol === selectedSymbol);
-  console.log('selectedData: ', selectedData)
+  const selectedData = useMemo(() => data.find(item => item.symbol === selectedSymbol), [data, selectedSymbol]);
   return (
     <div className={`min-h-screen ${isDark ? 'bg-dark' : 'bg-gray-100'} p-6`}>
       <div className="max-w-7xl mx-auto">
