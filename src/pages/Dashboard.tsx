@@ -89,13 +89,13 @@ export function Dashboard() {
           <div className={`rounded-lg shadow-xl border p-6 ${isDark ? 'bg-dark-card border-gray-800' : 'bg-white border-gray-200'}`}>
             <h2 className={`text-xl font-semibold mb-6 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>Evolução do Preço</h2>
             {selectedData  && selectedData.history.length > 0 ? (
-              <div className="chart-container h-[400px]">
+              <div className={`chart-container h-[400px] ${isDark ? 'bg-dark' : 'bg-white'}`}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={selectedData.history}>
                     <XAxis dataKey="timestamp" tickFormatter={(timestamp) => new Date(timestamp).toLocaleTimeString()} stroke="#4B5563" />
-                    <YAxis stroke="#4B5563" />
+                    <YAxis stroke={isDark ? '#e5e7eb' : '#374151'} />
                     <Tooltip contentStyle={{ backgroundColor: isDark ? '#242424' : '#ffffff', border: '1px solid #374151', borderRadius: '0.5rem' }} labelStyle={{ color: '#9CA3AF' }} itemStyle={{ color: '#00ff9d' }} labelFormatter={(timestamp) => new Date(timestamp).toLocaleString()} formatter={(value) => [`R$ ${Number(value).toFixed(2)}`, 'Preço']} />
-                    <Line type="monotone" dataKey="price" stroke="#00ff9d" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="price" stroke={isDark ? '#00ff9d' : '#1f8e73'} strokeWidth={2} dot={false} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>

@@ -3,7 +3,7 @@ import { useAuthStore } from "../store/auth";
 import { useThemeStore } from "../store/theme";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Moon, Sun, UserPlus } from "lucide-react";
+import { Eye, EyeOff, Moon, Sun, UserPlus } from "lucide-react";
 
 export function Register() {
     const navigate = useNavigate();
@@ -12,6 +12,7 @@ export function Register() {
     const [ email, setEmail ] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -89,19 +90,29 @@ export function Register() {
                             }`}>
                                 Senha
                             </label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className={`w-full px-4 py-3 rounded-lg transition-colors ${
-                                isDark 
-                                    ? 'bg-dark-lighter border-gray-700 text-gray-100 focus:border-primary focus:ring-primary' 
-                                    : 'bg-gray-50 border-gray-200 text-gray-900 focus:border-primary-dark focus:ring-primary-dark'
-                                } border focus:outline-none focus:ring-1`}
-                                required
-                            />
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className={`w-full px-4 py-3 rounded-lg transition-colors ${
+                                    isDark 
+                                        ? 'bg-dark-lighter border-gray-700 text-gray-100 focus:border-primary focus:ring-primary' 
+                                        : 'bg-gray-50 border-gray-200 text-gray-900 focus:border-primary-dark focus:ring-primary-dark'
+                                    } border focus:outline-none focus:ring-1`}
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className={`absolute right-3 top-1/2 -translate-y-1/2 ${
+                                        isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 hover:text-gray-800'
+                                    }`}
+                                    >
+                                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                </button>
+                            </div>
                         </div>
-            
                         <div>
                             <label className={`block text-sm font-medium mb-2 ${
                                 isDark ? 'text-gray-300' : 'text-gray-600'
